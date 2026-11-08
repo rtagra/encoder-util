@@ -1,0 +1,49 @@
+# encoder-util
+
+Browser-only utilities. No server, no build step, no tracking — everything runs in your browser.
+
+Live (GitHub Pages): https://rtagra.github.io/encoder-util/
+
+## Tools — each identifiable by filename
+
+| Page | File | What it does |
+|---|---|---|
+| Home | `index.html` | Links to all tools |
+| URL Encoder / Decoder | `url-encoder.html` + `js/url.js` | `encodeURIComponent` / `encodeURI`, decode with error handling |
+| Base64 Encoder / Decoder | `base64-encoder.html` + `js/base64.js` | Unicode-safe, standard + URL-safe |
+| JWT Encoder | `jwt-encoder.html` + `js/jwt.js` | HS256 / HS384 / HS512, secret is an input parameter |
+| JWT Decoder | `jwt-decoder.html` + `js/jwt.js` | Decode header + payload, hover `exp` / `iat` / `nbf` for human-readable local time, optional signature verify |
+| UUID Generator | `uuid-generator.html` + `js/uuid.js` | v4 random / v7 time-ordered, 1–100 at a time, hyphens + uppercase options |
+| Hex ↔ Base64 | `hex-base64.html` + `js/hex.js` | Hex to Base64 and back, standard + URL-safe |
+| String Renderer (read-only) | `string-renderer.html` + `js/string-renderer.js` | Render a string in a read-only view, raw / HTML-escaped / JSON-escaped, with byte + line stats |
+
+Shared code: `js/common.js` (Base64 / Base64URL, HMAC via Web Crypto, timestamp hover formatting), `css/style.css`.
+
+## JWT notes
+
+- **Secret is a parameter:** type it in the Secret field on the encode / decode pages. It is masked by default (Show / hide button), never stored, never sent anywhere.
+- **Hover timestamps:** mouse over `exp`, `iat` or `nbf` in the decoded JWT — the tooltip shows the human-readable local time, e.g. `8 Nov 2026, 14:30:00 WIB (in 2h)`, plus relative time.
+- **Demo only for signing:** don't paste a production secret into any web page. Real JWT signing belongs on a server. Decoding is safe — it only reads the token.
+
+## Host on GitHub Pages
+
+```bash
+git init
+git add .
+git commit -m "encoder-util: browser-only URL, Base64 and JWT tools"
+git branch -M main
+git remote add origin https://github.com/rtagra/encoder-util.git
+git push -u origin main
+```
+
+Then in GitHub: Settings → Pages → Deploy from a branch → `main` / `/ (root)` → Save.
+Visit https://rtagra.github.io/encoder-util/
+
+## Test locally
+
+```bash
+python3 -m http.server 8000
+# open http://localhost:8000/
+```
+
+Or just open `index.html` — note: Web Crypto (`crypto.subtle`, used for JWT signing) requires a secure context, so JWT encode/verify needs `http://localhost` or `https://`, not a plain `file://` open.

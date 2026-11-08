@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JWT Encoder — encoder-util</title><link rel="stylesheet" href="css/style.css"></head>
+<body><header><h1>JWT Encoder</h1>
+<nav><a href="index.html">Home</a><a href="url-encoder.html">URL</a><a href="base64-encoder.html">Base64</a><a href="jwt-encoder.html">JWT Encode</a><a href="jwt-decoder.html">JWT Decode</a><a href="uuid-generator.html">UUID</a><a href="hex-base64.html">Hex ↔ Base64</a><a href="string-renderer.html">String Renderer</a></nav>
+<p class="muted">Secret is an input parameter — type it below. It is never stored or sent anywhere. Demo only: don't use a production secret in a browser.</p></header>
+<main><div class="card">
+<div class="row"><div><label for="jwt-alg">Algorithm</label><select id="jwt-alg"><option>HS256</option><option>HS384</option><option>HS512</option></select></div>
+<div><label for="jwt-secret">Secret (parameter)</label><div class="row"><input type="password" id="jwt-secret" placeholder="your-secret"><button class="secondary" onclick="toggleSecret('jwt-secret')">Show / hide</button></div></div></div>
+<label for="jwt-header">Header (JSON)</label><textarea id="jwt-header">{"alg":"HS256","typ":"JWT"}</textarea>
+<label for="jwt-payload">Payload (JSON)</label><textarea id="jwt-payload">{"sub":"1234567890","name":"Ronald","iat":1794100000,"exp":1794103600}</textarea>
+<p class="muted">Tip: <code>iat</code> / <code>exp</code> are unix seconds. Decode the token on the <a href="jwt-decoder.html">JWT Decoder</a> page and hover them for human-readable local time.</p>
+<div><button onclick="jwtEncode()">Encode / Sign</button></div>
+<p id="jwt-error"></p>
+<label for="jwt-output">Token</label><textarea id="jwt-output" readonly></textarea>
+<button class="secondary" data-copy="jwt-output" onclick="copyText('jwt-output')">Copy token</button>
+</div></main>
+<script src="js/common.js"></script><script src="js/jwt.js"></script></body></html>

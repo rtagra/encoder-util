@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Base64 Encoder / Decoder — encoder-util</title><link rel="stylesheet" href="css/style.css"></head>
+<body><header><h1>Base64 Encoder / Decoder</h1>
+<nav><a href="index.html">Home</a><a href="url-encoder.html">URL</a><a href="base64-encoder.html">Base64</a><a href="jwt-encoder.html">JWT Encode</a><a href="jwt-decoder.html">JWT Decode</a><a href="uuid-generator.html">UUID</a><a href="hex-base64.html">Hex ↔ Base64</a><a href="string-renderer.html">String Renderer</a></nav></header>
+<main><div class="card">
+<label><input type="checkbox" id="b64-urlsafe"> URL-safe Base64 (- _ instead of + /, no padding)</label>
+<label for="b64-input">Input</label><textarea id="b64-input" placeholder="Hello, world — Unicode works too"></textarea>
+<div><button onclick="b64DoEncode()">Encode</button><button class="secondary" onclick="b64DoDecode()">Decode</button><button class="secondary" onclick="swapB64()">Swap</button></div>
+<p id="b64-error"></p>
+<label for="b64-output">Output</label><textarea id="b64-output" readonly></textarea>
+<button class="secondary" data-copy="b64-output" onclick="copyText('b64-output')">Copy output</button>
+</div></main>
+<script src="js/common.js"></script><script src="js/base64.js"></script></body></html>

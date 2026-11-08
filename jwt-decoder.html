@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JWT Decoder — encoder-util</title><link rel="stylesheet" href="css/style.css"></head>
+<body><header><h1>JWT Decoder</h1>
+<nav><a href="index.html">Home</a><a href="url-encoder.html">URL</a><a href="base64-encoder.html">Base64</a><a href="jwt-encoder.html">JWT Encode</a><a href="jwt-decoder.html">JWT Decode</a><a href="uuid-generator.html">UUID</a><a href="hex-base64.html">Hex ↔ Base64</a><a href="string-renderer.html">String Renderer</a></nav>
+<p class="muted">Hover over <code>exp</code>, <code>iat</code> or <code>nbf</code> in the decoded tables to see the human-readable local time + relative time (e.g. “in 2h”, “3h ago”).</p></header>
+<main><div class="card">
+<label for="jwt-token">Token</label><textarea id="jwt-token" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlJvbmFsZCIsImlhdCI6MTc5NDEwMDAwMCwiZXhwIjoxNzk0MTAzNjAwfQ."></textarea>
+<div><button onclick="jwtDecode()">Decode</button></div>
+<p id="jwt-error"></p>
+<div id="jwt-result" style="display:none">
+<h2>Header</h2><div id="jwt-header-out"></div>
+<h2>Payload</h2><div id="jwt-payload-out"></div>
+<h2>Verify signature (optional)</h2>
+<label for="jwt-secret">Secret (parameter)</label><div class="row"><input type="password" id="jwt-secret" placeholder="your-secret — only needed to verify"><button class="secondary" onclick="toggleSecret('jwt-secret')">Show / hide</button></div>
+<div><button onclick="jwtVerify()">Verify signature</button> <span id="jwt-verify-result"></span></div>
+</div>
+</div></main>
+<script src="js/common.js"></script><script src="js/jwt.js"></script></body></html>

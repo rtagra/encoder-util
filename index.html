@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>encoder-util — browser-only encoders</title><link rel="stylesheet" href="css/style.css"></head>
+<body><header><h1>encoder-util</h1>
+<p class="muted">Browser-only utilities. No server, no tracking, nothing you type leaves your browser. Each tool has its own page / filename, so you can link straight to it.</p>
+<nav><a href="index.html">Home</a><a href="url-encoder.html">URL</a><a href="base64-encoder.html">Base64</a><a href="jwt-encoder.html">JWT Encode</a><a href="jwt-decoder.html">JWT Decode</a><a href="uuid-generator.html">UUID</a><a href="hex-base64.html">Hex ↔ Base64</a><a href="string-renderer.html">String Renderer</a></nav></header>
+<main><div class="grid">
+<a href="url-encoder.html"><strong>URL Encoder / Decoder</strong><br><span class="muted">url-encoder.html — encodeURIComponent / encodeURI, decode with error handling</span></a>
+<a href="base64-encoder.html"><strong>Base64 Encoder / Decoder</strong><br><span class="muted">base64-encoder.html — Unicode-safe, standard + URL-safe</span></a>
+<a href="jwt-encoder.html"><strong>JWT Encoder</strong><br><span class="muted">jwt-encoder.html — HS256 / HS384 / HS512, secret is an input parameter</span></a>
+<a href="jwt-decoder.html"><strong>JWT Decoder</strong><br><span class="muted">jwt-decoder.html — decode header + payload, hover exp / iat for human-readable time, verify signature</span></a>
+<a href="uuid-generator.html"><strong>UUID Generator</strong><br><span class="muted">uuid-generator.html — v4 random / v7 time-ordered, 1–100 at a time, hyphens + uppercase options</span></a>
+<a href="hex-base64.html"><strong>Hex ↔ Base64</strong><br><span class="muted">hex-base64.html — hex to Base64 and back, standard + URL-safe</span></a>
+<a href="string-renderer.html"><strong>String Renderer (read-only)</strong><br><span class="muted">string-renderer.html — render a string in a read-only view, raw / HTML-escaped / JSON-escaped, with byte + line stats</span></a>
+</div>
+<div class="card"><h2>Privacy</h2><p>JWT signing / verifying with a real secret is demo-only in a browser. Don't paste a production secret into any web page — signing real tokens belongs on a server. Decoding a JWT is safe: it only reads the token.</p></div>
+</main><footer class="muted">encoder-util · GitHub Pages · all logic in <code>js/</code>, one file per utility</footer></body></html>

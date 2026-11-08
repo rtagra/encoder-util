@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>URL Encoder / Decoder — encoder-util</title><link rel="stylesheet" href="css/style.css"></head>
+<body><header><h1>URL Encoder / Decoder</h1>
+<nav><a href="index.html">Home</a><a href="url-encoder.html">URL</a><a href="base64-encoder.html">Base64</a><a href="jwt-encoder.html">JWT Encode</a><a href="jwt-decoder.html">JWT Decode</a><a href="uuid-generator.html">UUID</a><a href="hex-base64.html">Hex ↔ Base64</a><a href="string-renderer.html">String Renderer</a></nav></header>
+<main><div class="card">
+<label><input type="radio" name="url-mode" value="component" checked> encodeURIComponent — for a query value / component</label>
+<label><input type="radio" name="url-mode" value="full"> encodeURI — for a full URL (keeps : / ? &amp; =)</label>
+<label for="url-input">Input</label><textarea id="url-input" placeholder="https://example.com/search?q=hello world&amp;lang=en"></textarea>
+<div><button onclick="doEncode()">Encode</button><button class="secondary" onclick="doDecode()">Decode</button><button class="secondary" onclick="swapUrl()">Swap</button></div>
+<p id="url-error"></p>
+<label for="url-output">Output</label><textarea id="url-output" readonly></textarea>
+<button class="secondary" data-copy="url-output" onclick="copyText('url-output')">Copy output</button>
+</div></main>
+<script src="js/common.js"></script><script src="js/url.js"></script></body></html>

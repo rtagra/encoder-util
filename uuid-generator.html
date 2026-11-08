@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UUID Generator — encoder-util</title><link rel="stylesheet" href="css/style.css"></head>
+<body><header><h1>UUID Generator</h1>
+<nav><a href="index.html">Home</a><a href="url-encoder.html">URL</a><a href="base64-encoder.html">Base64</a><a href="jwt-encoder.html">JWT Encode</a><a href="jwt-decoder.html">JWT Decode</a><a href="uuid-generator.html">UUID</a><a href="hex-base64.html">Hex ↔ Base64</a><a href="string-renderer.html">String Renderer</a></nav></header>
+<main><div class="card">
+<div class="row"><div><label for="uuid-version">Version</label><select id="uuid-version"><option value="v4">v4 — random (crypto.randomUUID)</option><option value="v7">v7 — time-ordered</option></select></div>
+<div><label for="uuid-count">How many? (1–100)</label><input type="number" id="uuid-count" value="1" min="1" max="100"></div></div>
+<label><input type="checkbox" id="uuid-hyphens" checked> Hyphens (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)</label>
+<label><input type="checkbox" id="uuid-upper"> Uppercase</label>
+<div><button onclick="genUuids()">Generate</button></div>
+<p id="uuid-error"></p>
+<label for="uuid-output">Output — one UUID per line</label><textarea id="uuid-output" readonly></textarea>
+<button class="secondary" data-copy="uuid-output" onclick="copyText('uuid-output')">Copy all</button>
+</div></main>
+<script src="js/common.js"></script><script src="js/uuid.js"></script></body></html>

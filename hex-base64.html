@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hex ↔ Base64 — encoder-util</title><link rel="stylesheet" href="css/style.css"></head>
+<body><header><h1>Hex ↔ Base64</h1>
+<nav><a href="index.html">Home</a><a href="url-encoder.html">URL</a><a href="base64-encoder.html">Base64</a><a href="jwt-encoder.html">JWT Encode</a><a href="jwt-decoder.html">JWT Decode</a><a href="uuid-generator.html">UUID</a><a href="hex-base64.html">Hex ↔ Base64</a><a href="string-renderer.html">String Renderer</a></nav>
+<p class="muted">Hex input may start with <code>0x</code> and may contain spaces. Base64 input accepts standard or URL-safe.</p></header>
+<main><div class="card">
+<label><input type="checkbox" id="hex-urlsafe"> URL-safe Base64 output (- _ , no padding)</label>
+<label for="hex-input">Input — hex, or Base64</label><textarea id="hex-input" placeholder="48656c6c6f or SGVsbG8="></textarea>
+<div><button onclick="hexToB64()">Hex → Base64</button><button class="secondary" onclick="b64ToHex()">Base64 → Hex</button><button class="secondary" onclick="swapHex()">Swap</button></div>
+<p id="hex-error"></p>
+<label for="hex-output">Output</label><textarea id="hex-output" readonly></textarea>
+<button class="secondary" data-copy="hex-output" onclick="copyText('hex-output')">Copy output</button>
+</div></main>
+<script src="js/common.js"></script><script src="js/hex.js"></script></body></html>
