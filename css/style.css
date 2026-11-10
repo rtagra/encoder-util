@@ -28,3 +28,11 @@ pre{white-space:pre-wrap;word-break:break-all;background:#0b1220;padding:12px;bo
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .grid a{display:block;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;color:var(--text);text-decoration:none}
 .grid a:hover{border-color:var(--accent)}
+
+/* JWT two-column layout: Encoded left, Decoded (Header / Payload / Signature) right.
+   Stacks to one column on narrow screens. */
+.jwt-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.jwt-layout .card{margin:0}
+.jwt-layout textarea{min-height:180px}
+#jwt-token{min-height:320px}
+@media (max-width:700px){.jwt-layout{grid-template-columns:1fr}}

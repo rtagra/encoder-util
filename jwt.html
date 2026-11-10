@@ -26,24 +26,31 @@
 </script></head>
 <body><header><h1>JWT Encoder &amp; Decoder</h1>
 <nav><a href="index.html">Home</a><a href="url-encoder.html">URL</a><a href="base64-encoder.html">Base64</a><a href="jwt.html" class="active" aria-current="page">JWT</a><a href="uuid-generator.html">UUID</a><a href="hex-base64.html">Hex ↔ Base64</a><a href="md5-hasher.html">MD5</a><a href="sha256-base64.html">SHA-256</a></nav>
-<p class="muted">Like jwt.io: paste a token and it decodes. Edit the header or payload and it re-signs the token. Secret is an input parameter — never stored or sent anywhere.</p></header>
+<p class="muted">Like jwt.io: paste a token on the left and it decodes on the right. Edit the header or payload on the right and the token on the left re-signs. No buttons — everything updates as you type. Secret is an input parameter — never stored or sent anywhere.</p></header>
 <main>
+<div class="jwt-layout">
 <div class="card">
-<label for="jwt-token">Encoded — paste a JWT here</label><textarea id="jwt-token" oninput="onJwtTokenInput()" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpXVCJ9."></textarea>
-<div><button onclick="jwtDecode()">Decode</button> <button class="secondary" data-copy="jwt-token" onclick="copyText('jwt-token')">Copy token</button></div>
+<h2>Encoded</h2>
+<label for="jwt-token">JWT token</label><textarea id="jwt-token" oninput="onJwtTokenInputDebounced()" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpXVCJ9."></textarea>
 <p id="jwt-error"></p>
+<p class="muted">Paste a token here — header, payload and signature update on the right.</p>
 </div>
 <div class="card">
-<h2>Decoded — edit the claims to re-sign the token</h2>
-<div class="row"><div><label for="jwt-alg">Algorithm</label><select id="jwt-alg" onchange="onJwtClaimsInput()"><option>HS256</option><option>HS384</option><option>HS512</option></select></div>
-<div><label for="jwt-secret">Secret (parameter)</label><div class="row"><input type="password" id="jwt-secret" placeholder="your-secret" oninput="onJwtClaimsInput()"><button class="secondary" onclick="toggleSecret('jwt-secret')">Show / hide</button></div></div></div>
-<label for="jwt-header">Header (JSON)</label><textarea id="jwt-header" oninput="onJwtClaimsInput()"></textarea>
-<label for="jwt-payload">Payload (JSON) — edit a claim, the token above updates</label><textarea id="jwt-payload" oninput="onJwtClaimsInput()"></textarea>
-<div><button onclick="jwtEncode()">Encode / Sign</button> <button class="secondary" onclick="jwtVerify()">Verify signature</button> <span id="jwt-verify-result"></span></div>
+<h2>Decoded</h2>
+<h3>1. Header</h3>
+<label for="jwt-header">Header (JSON)</label><textarea id="jwt-header" oninput="onJwtClaimsInputDebounced()"></textarea>
+<h3>2. Payload</h3>
+<label for="jwt-payload">Payload (JSON) — edit a claim, the token on the left updates</label><textarea id="jwt-payload" oninput="onJwtClaimsInputDebounced()"></textarea>
 <div id="jwt-decoded" style="display:none">
-<h3>Header</h3><div id="jwt-header-out"></div>
-<h3>Payload</h3><div id="jwt-payload-out"></div>
-<p class="muted">Hover over <code>exp</code>, <code>iat</code> or <code>nbf</code> in the tables to see the human-readable local time + relative time (e.g. “in 2h”, “3h ago”).</p>
+<div id="jwt-header-out"></div>
+<div id="jwt-payload-out"></div>
+<p class="muted">Hover over <code>exp</code>, <code>iat</code> or <code>nbf</code> in the tables to see the readable date and time (e.g. “in 2h”, “3h ago”).</p>
+</div>
+<h3>3. Signature</h3>
+<div class="row"><div><label for="jwt-alg">Algorithm</label><select id="jwt-alg" onchange="onJwtClaimsInputDebounced()"><option>HS256</option><option>HS384</option><option>HS512</option></select></div>
+<div><label for="jwt-secret">Secret (parameter)</label><input type="password" id="jwt-secret" placeholder="your-secret" oninput="onJwtClaimsInputDebounced()"></div></div>
+<label><input type="checkbox" onchange="toggleSecret('jwt-secret')"> Show secret</label>
+<p><span id="jwt-verify-result"></span></p>
 </div>
 </div>
 <div class="card"><h2>Privacy</h2><p>JWT signing / verifying with a real secret is demo-only in a browser. Don't paste a production secret into any web page — signing real tokens belongs on a server. Decoding a JWT is safe: it only reads the token.</p></div>

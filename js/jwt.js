@@ -100,3 +100,8 @@ async function jwtInit(){
   $('jwt-token').value='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlJvbmFsZCIsImlhdCI6MTc5NDEwMDAwMCwiZXhwIjoxNzk0MTAzNjAwfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
   jwtDecode();
 }
+
+// Debounce live updates so typing doesn't re-sign on every keystroke.
+function _debounce(fn, ms){ let h; return function(){ clearTimeout(h); h=setTimeout(fn, ms); }; }
+var onJwtTokenInputDebounced = _debounce(function(){ if(!_jwtUpdating) jwtDecode(); }, 250);
+var onJwtClaimsInputDebounced = _debounce(function(){ if(_jwtUpdating) return; _renderDecoded(); if($('jwt-secret').value) jwtEncode(); }, 250);
