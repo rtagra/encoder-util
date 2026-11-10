@@ -20,3 +20,15 @@ If analytics needs changing, change it in Google Tag Manager, not in these files
 
 Privacy: only page views are counted. No tool input, JWT, secret, or
 encoded/decoded text is ever sent to Google.
+
+## Adding a new page — always add the Google Tag
+
+Every new HTML page in this repo MUST include the GTM snippet above,
+verbatim, in its `<head>`, with the DO NOT ALTER comment above it.
+
+Checklist for a new page:
+1. Copy the snippet from `new-page-template.html` (or any existing page) — do not retype it.
+2. Paste it in `<head>`, exactly as-is, ID `GTM-NWTM4N47`.
+3. Add the page to the menu (`<nav>`) in every HTML file, marking it `class="active"` on its own page.
+4. Add it to the home-page grid in `index.html` and to the tools table in `README.md`.
+5. Verify the tag is present before pushing: `grep -c GTM-NWTM4N47 <new-page>.html` must return 2.
