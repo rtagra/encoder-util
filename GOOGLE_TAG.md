@@ -33,3 +33,11 @@ Checklist for a new page:
 4. Add it to the home-page grid in `index.html` and to the tools table in `README.md`.
 5. Verify the tag is present before pushing: `grep -c GTM-NWTM4N47 <new-page>.html` must return 2.
 6. Add SEO to the new page too (unique title, meta description, canonical, Open Graph, JSON-LD) and add it to `sitemap.xml` — see README.md > SEO.
+
+## Exception: openapi.html has NO tag
+
+`openapi.html` must NOT have the Google Tag Manager snippet, by design.
+Bank OpenAPI specs are confidential, so no page view is sent while
+working on that page. Do not add the tag to `openapi.html`, even though
+every other page has it. Swagger UI and the YAML parser on that page
+are vendored locally in `vendor/` — no CDN, no external script.

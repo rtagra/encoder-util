@@ -1,0 +1,23 @@
+/* encoder-util dark theme overrides for vendored Swagger UI (5.34.1).
+   Swagger UI ships light by default; this makes it match encoder-util:
+   dark background #0f172a, card #1e293b, text #e2e8f0, accent #38bdf8. */
+.swagger-ui{background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.swagger-ui .info .title,.swagger-ui .info p,.swagger-ui .info li,.swagger-ui .info .base-url,
+.swagger-ui .opblock .opblock-summary-description,.swagger-ui .opblock-description-wrapper p,
+.swagger-ui .opblock-body .opblock-section-header h4,.swagger-ui table thead tr th,
+.swagger-ui .parameter__name,.swagger-ui .parameter__type,.swagger-ui .response-col_status,
+.swagger-ui .model-title,.swagger-ui .model-box,.swagger-ui .scheme-container .schemes-title,
+.swagger-ui .opblock-tag{color:#e2e8f0}
+.swagger-ui .info a,.swagger-ui a{color:#38bdf8}
+.swagger-ui .opblock{background:#1e293b;border:1px solid #334155}
+.swagger-ui .opblock .opblock-summary{border-color:#334155}
+.swagger-ui .opblock .opblock-section-header{background:#1e293b;box-shadow:none}
+.swagger-ui .opblock-tag{border-color:#334155}
+.swagger-ui .btn{background:#334155;color:#fff;border:1px solid #64748b}
+.swagger-ui .btn:hover{background:#475569}
+.swagger-ui .btn.execute{background:#38bdf8;color:#082f49;border-color:#38bdf8;font-weight:700}
+.swagger-ui input,.swagger-ui select,.swagger-ui textarea{background:#0b1220;color:#e2e8f0;border:1px solid #334155}
+.swagger-ui .responses-inner,.swagger-ui .model-box{background:#0b1220}
+.swagger-ui .highlight-code pre,.swagger-ui pre{background:#0b1220;color:#e2e8f0}
+.swagger-ui .opblock .opblock-summary-method{color:#fff}
+.swagger-ui .topbar{display:none}
