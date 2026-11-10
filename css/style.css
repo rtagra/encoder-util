@@ -1,6 +1,6 @@
 :root{--bg:#0f172a;--card:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--ok:#22c55e;--bad:#ef4444;--border:#334155}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-header,main,footer{max-width:900px;margin:0 auto;padding:16px}
+header,main,footer{max-width:1200px;margin:0 auto;padding:16px}
 /* Main menu — horizontal pill menu, wraps on small screens.
    Current page gets .active (set in each HTML file). */
 nav{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:12px}
