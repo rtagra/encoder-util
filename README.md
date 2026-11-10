@@ -29,8 +29,7 @@ To submit to Google:
 | Home | `index.html` | Links to all tools |
 | URL Encoder / Decoder | `url-encoder.html` + `js/url.js` | `encodeURIComponent` / `encodeURI`, decode with error handling |
 | Base64 Encoder / Decoder | `base64-encoder.html` + `js/base64.js` | Unicode-safe, standard + URL-safe |
-| JWT Encoder | `jwt-encoder.html` + `js/jwt.js` | HS256 / HS384 / HS512, secret is an input parameter |
-| JWT Decoder | `jwt-decoder.html` + `js/jwt.js` | Decode header + payload, hover `exp` / `iat` / `nbf` for human-readable local time, optional signature verify |
+| JWT Encoder & Decoder | `jwt.html` + `js/jwt.js` | Like jwt.io: paste a token to decode header + payload, edit the claims to re-sign it, HS256 / HS384 / HS512, verify signature, hover `exp` / `iat` / `nbf` for human-readable local time |
 | UUID Generator | `uuid-generator.html` + `js/uuid.js` | v4 random / v7 time-ordered, 1–100 at a time, hyphens + uppercase options |
 | Hex ↔ Base64 | `hex-base64.html` + `js/hex.js` | Hex to Base64 and back, standard + URL-safe |
 | MD5 Hasher | `md5-hasher.html` + `js/md5.js` | MD5 hash of any text, hex output (checksum use only — MD5 is not secure) |
