@@ -4,13 +4,14 @@ header,main,footer{max-width:900px;margin:0 auto;padding:16px}
 /* Main menu — horizontal pill menu, wraps on small screens.
    Current page gets .active (set in each HTML file). */
 nav{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:12px}
-/* Menu buttons — each link is a real button, not a subtle text link.
-   Container is transparent so the buttons stand out. */
-nav{background:transparent;border:0;padding:0}
-nav a{background:#334155;color:#fff;padding:10px 14px;border-radius:10px;border:1px solid #64748b;box-shadow:0 2px 0 #1e293b;text-decoration:none;font-weight:700;white-space:nowrap}
-nav a:hover{background:#475569;border-color:#94a3b8}
-nav a:active{box-shadow:none;transform:translateY(1px)}
-nav a.active{background:var(--accent);color:#082f49;border-color:var(--accent)}
+/* Menu buttons — each link is a real button.
+   The menu bar itself has a background, and each button has its own
+   lighter background + border + shadow, so it is unmistakable. */
+nav{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 4px;padding:12px;background:#1e293b;border:1px solid #475569;border-radius:12px}
+nav a{background:#64748b;color:#fff;padding:10px 16px;border-radius:10px;border:1px solid #cbd5e1;box-shadow:0 3px 0 #0f172a;text-decoration:none;font-weight:700;white-space:nowrap}
+nav a:hover{background:#94a3b8;color:#0f172a;border-color:#fff}
+nav a:active{box-shadow:none;transform:translateY(2px)}
+nav a.active{background:var(--accent);color:#082f49;border-color:#fff}
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin:16px 0}
 label{display:block;margin:12px 0 4px;font-weight:600}
 textarea,input,select{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:#0b1220;color:var(--text);font:14px/1.5 ui-monospace,Menlo,monospace}
