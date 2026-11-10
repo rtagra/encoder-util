@@ -12,6 +12,16 @@ Every new HTML page MUST include the exact GTM snippet in its `<head>`, verbatim
 
 Live (GitHub Pages): https://rtagra.github.io/encoder-util/
 
+## SEO — submitting to Google
+
+Every tool page has a unique `<title>`, `<meta name="description">`, canonical URL, Open Graph / Twitter tags, and JSON-LD structured data. `robots.txt` and `sitemap.xml` are in the repo root.
+
+To submit to Google:
+1. Go to [Google Search Console](https://search.google.com/search-console) and add the property `https://rtagra.github.io/encoder-util/` (URL-prefix property).
+2. Verify ownership — use the HTML-tag method and paste the verification `<meta>` into `index.html` (ask Bossing to add it), or the HTML-file method.
+3. In Search Console: Sitemaps → add `https://rtagra.github.io/encoder-util/sitemap.xml` → Submit.
+4. Request indexing for the home page, then wait — Google usually indexes a small new site in days to a few weeks. Check coverage in Search Console, not by searching immediately.
+
 ## Tools — each identifiable by filename
 
 | Page | File | What it does |

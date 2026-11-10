@@ -32,3 +32,4 @@ Checklist for a new page:
 3. Add the page to the menu (`<nav>`) in every HTML file, marking it `class="active"` on its own page.
 4. Add it to the home-page grid in `index.html` and to the tools table in `README.md`.
 5. Verify the tag is present before pushing: `grep -c GTM-NWTM4N47 <new-page>.html` must return 2.
+6. Add SEO to the new page too (unique title, meta description, canonical, Open Graph, JSON-LD) and add it to `sitemap.xml` — see README.md > SEO.
