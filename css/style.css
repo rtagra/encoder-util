@@ -4,9 +4,13 @@ header,main,footer{max-width:900px;margin:0 auto;padding:16px}
 /* Main menu — horizontal pill menu, wraps on small screens.
    Current page gets .active (set in each HTML file). */
 nav{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:12px}
-nav a{color:var(--text);padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap}
-nav a:hover{background:#334155;color:#fff}
-nav a.active{background:var(--accent);color:#082f49}
+/* Menu buttons — each link is a real button, not a subtle text link.
+   Container is transparent so the buttons stand out. */
+nav{background:transparent;border:0;padding:0}
+nav a{background:#334155;color:#fff;padding:10px 14px;border-radius:10px;border:1px solid #64748b;box-shadow:0 2px 0 #1e293b;text-decoration:none;font-weight:700;white-space:nowrap}
+nav a:hover{background:#475569;border-color:#94a3b8}
+nav a:active{box-shadow:none;transform:translateY(1px)}
+nav a.active{background:var(--accent);color:#082f49;border-color:var(--accent)}
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin:16px 0}
 label{display:block;margin:12px 0 4px;font-weight:600}
 textarea,input,select{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:#0b1220;color:var(--text);font:14px/1.5 ui-monospace,Menlo,monospace}
