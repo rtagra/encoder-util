@@ -40,6 +40,8 @@ To submit to Google:
 | SHA-256 + Base64 | `sha256-base64.html` + `js/sha256.js` | SHA-256 hash, hex and Base64 output, via Web Crypto |
 | OpenAPI Renderer & Editor | `openapi.html` + `js/openapi.js` + vendored Swagger UI 5.34.1 | Paste an OpenAPI YAML/JSON spec, render as Swagger UI docs, edit live — no CDN, no GTM on this page |
 | JSON Formatter, Validator & Minifier | `json-formatter.html` + `js/json.js` | Pretty-print, minify and validate JSON, sort keys, 2/4-space or tab indent |
+| Regex Tester | `regex-tester.html` + `js/regex.js` | Test regex with flags, highlight matches, capture groups, replace with $1/$2 |
+| Date Formatter | `date-formatter.html` + `js/date.js` | Format a date for Java, Python, JavaScript, Go, C# and PHP, with sample code |
 
 Shared code: `js/common.js` (Base64 / Base64URL, HMAC via Web Crypto, timestamp hover formatting), `css/style.css`.
 
