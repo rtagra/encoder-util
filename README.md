@@ -35,9 +35,8 @@ To submit to Google:
 | Base64 Encoder / Decoder | `base64-encoder.html` + `js/base64.js` | Unicode-safe, standard + URL-safe |
 | JWT Encoder & Decoder | `jwt.html` + `js/jwt.js` | Like jwt.io: paste a token to decode header + payload, edit the claims to re-sign it, HS256 / HS384 / HS512, verify signature, hover `exp` / `iat` / `nbf` for human-readable local time |
 | UUID Generator | `uuid-generator.html` + `js/uuid.js` | v4 random / v7 time-ordered, 1–100 at a time, hyphens + uppercase options |
+| MD5 & SHA-256 Hasher | `hash.html` + `js/hash.js` | One input, both hashes: MD5 hex, SHA-256 hex and Base64, live update |
 | Hex ↔ Base64 | `hex-base64.html` + `js/hex.js` | Hex to Base64 and back, standard + URL-safe |
-| MD5 Hasher | `md5-hasher.html` + `js/md5.js` | MD5 hash of any text, hex output (checksum use only — MD5 is not secure) |
-| SHA-256 + Base64 | `sha256-base64.html` + `js/sha256.js` | SHA-256 hash, hex and Base64 output, via Web Crypto |
 | OpenAPI Renderer & Editor | `openapi.html` + `js/openapi.js` + vendored Swagger UI 5.34.1 | Paste an OpenAPI YAML/JSON spec, render as Swagger UI docs, edit live — no CDN, no GTM on this page |
 | JSON Formatter, Validator & Minifier | `json-formatter.html` + `js/json.js` | Pretty-print, minify and validate JSON, sort keys, 2/4-space or tab indent |
 | Regex Tester | `regex-tester.html` + `js/regex.js` | Test regex with flags, highlight matches, capture groups, replace with $1/$2 |
