@@ -39,6 +39,7 @@ To submit to Google:
 | MD5 Hasher | `md5-hasher.html` + `js/md5.js` | MD5 hash of any text, hex output (checksum use only — MD5 is not secure) |
 | SHA-256 + Base64 | `sha256-base64.html` + `js/sha256.js` | SHA-256 hash, hex and Base64 output, via Web Crypto |
 | OpenAPI Renderer & Editor | `openapi.html` + `js/openapi.js` + vendored Swagger UI 5.34.1 | Paste an OpenAPI YAML/JSON spec, render as Swagger UI docs, edit live — no CDN, no GTM on this page |
+| JSON Formatter, Validator & Minifier | `json-formatter.html` + `js/json.js` | Pretty-print, minify and validate JSON, sort keys, 2/4-space or tab indent |
 
 Shared code: `js/common.js` (Base64 / Base64URL, HMAC via Web Crypto, timestamp hover formatting), `css/style.css`.
 
