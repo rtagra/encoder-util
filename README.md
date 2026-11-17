@@ -42,6 +42,7 @@ To submit to Google:
 | Regex Tester | `regex-tester.html` + `js/regex.js` | Test regex with flags, highlight matches, capture groups, replace with $1/$2 |
 | CIDR Calculator | `cidr-calculator.html` + `js/cidr.js` | IPv4 CIDR to network, broadcast, subnet/wildcard mask, usable hosts; check if an IP is in range |
 | Date Formatter | `date-formatter.html` + `js/date.js` | Format a date for Java, Python, JavaScript, Go, C# and PHP, with sample code |
+| Cert Formatter | `cert-formatter.html` + `js/cert.js` | Wrap a single-line PEM block (certificate / key / CSR) to 64 chars per line (RFC 7468), 76 / 44 / 32, or unwrap to one line |
 
 Shared code: `js/common.js` (Base64 / Base64URL, HMAC via Web Crypto, timestamp hover formatting), `css/style.css`.
 
