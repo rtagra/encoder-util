@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON & API — JSON Formatter & OpenAPI Renderer | encoder-util</title>
+<meta name="description" content="Free online JSON formatter/validator/minifier and OpenAPI renderer & editor — in your browser, no server, no CDN.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://rtagra.github.io/encoder-util/json-api.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="encoder-util">
+<meta property="og:title" content="JSON & API — JSON Formatter & OpenAPI Renderer | encoder-util">
+<meta property="og:description" content="Free online JSON formatter/validator/minifier and OpenAPI renderer & editor — in your browser, no server, no CDN.">
+<meta property="og:url" content="https://rtagra.github.io/encoder-util/json-api.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON & API — JSON Formatter & OpenAPI Renderer | encoder-util">
+<meta name="twitter:description" content="Free online JSON formatter/validator/minifier and OpenAPI renderer & editor — in your browser, no server, no CDN.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"JSON & API — JSON Formatter & OpenAPI Renderer | encoder-util","description":"Free online JSON formatter/validator/minifier and OpenAPI renderer & editor — in your browser, no server, no CDN.","url":"https://rtagra.github.io/encoder-util/json-api.html","isPartOf":{"@type":"WebSite","name":"encoder-util","url":"https://rtagra.github.io/encoder-util/"}}</script><link rel="stylesheet" href="css/style.css?v=2"><link rel="stylesheet" href="vendor/swagger-ui/swagger-ui.css"><link rel="stylesheet" href="css/swagger-theme.css"><!-- NOTE: this page has NO Google Tag Manager tag, by design.
+     It contains the OpenAPI tab: bank OpenAPI specs are confidential,
+     so no page view is sent while you work here. See GOOGLE_TAG.md
+     for the exception. --></head>
+<body><header><h1>JSON &amp; API</h1>
+<nav><a href="index.html">Home</a><a href="encoders.html">Encoders</a><a href="crypto.html">Crypto &amp; Certs</a><a href="json-api.html" class="active" aria-current="page">JSON &amp; API</a><a href="regex-date.html">Regex &amp; Date</a><a href="ids-network.html">IDs &amp; Network</a></nav></header>
+<main>
+<div class="tabs" role="tablist" aria-label="JSON & API tools">
+<button type="button" class="tab-btn" role="tab" id="tab-json" data-tab="json" aria-controls="json" aria-selected="false">JSON Formatter / Validator / Minifier</button>
+<button type="button" class="tab-btn" role="tab" id="tab-openapi" data-tab="openapi" aria-controls="openapi" aria-selected="false">OpenAPI Renderer &amp; Editor</button>
+</div>
+<section class="tab-panel" id="json" role="tabpanel" aria-labelledby="tab-json">
+<div class="card">
+<label for="json-input">Input JSON</label><textarea id="json-input" placeholder='{"name": "Ronald", "active": true}' style="min-height:200px"></textarea>
+<div><label for="json-indent">Indent</label> <select id="json-indent"><option value="2" selected>2 spaces</option><option value="4">4 spaces</option><option value="tab">Tab</option></select>
+<label><input type="checkbox" id="json-sort"> Sort keys alphabetically</label></div>
+<div><button onclick="jsonFormat()">Format</button><button class="secondary" onclick="jsonMinify()">Minify</button><button class="secondary" onclick="jsonValidate()">Validate</button><button class="secondary" onclick="jsonSample()">Load sample</button><button class="secondary" onclick="jsonClear()">Clear</button></div>
+<p id="json-error"></p><p id="json-status"></p>
+<label for="json-output">Output</label><textarea id="json-output" readonly style="min-height:200px"></textarea>
+<button class="secondary" data-copy="json-output" onclick="copyText('json-output')">Copy output</button>
+<p class="muted">Browser-only: your JSON is parsed with JSON.parse in your browser. No server, nothing is sent anywhere.</p>
+</div>
+</section>
+<section class="tab-panel" id="openapi" role="tabpanel" aria-labelledby="tab-openapi">
+<div class="jwt-layout">
+<div class="card">
+<h2>Editor — OpenAPI spec (YAML or JSON)</h2>
+<label for="openapi-input">Spec</label><textarea id="openapi-input" oninput="onOpenApiInput()" style="min-height:520px">openapi: 3.0.3
+info:
+  title: Petstore (sample)
+  version: 1.0.0
+  description: Sample OpenAPI spec — replace this with your own spec.
+servers:
+  - url: https://petstore.swagger.io/v2
+paths:
+  /pet/{petId}:
+    get:
+      tags: [pet]
+      summary: Find pet by ID
+      operationId: getPetById
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        '404':
+          description: Pet not found
+  /pet:
+    post:
+      tags: [pet]
+      summary: Add a new pet
+      operationId: addPet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    Pet:
+      type: object
+      required: [name]
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        status:
+          type: string
+          enum: [available, pending, sold]
+</textarea>
+<p id="openapi-error"></p>
+<p class="muted">Sample Petstore spec loaded — replace it with your own. Editing updates the docs on the right automatically.</p>
+</div>
+<div class="card">
+<h2>Rendered docs</h2>
+<div id="swagger-ui"></div>
+</div>
+</div>
+<div class="card"><h2>Privacy</h2><p>This page has no Google Tag Manager and loads no external scripts — Swagger UI and the YAML parser are copied into this repo. Your spec is only parsed in your browser. Do not paste a production secret or credential into a spec, and only use “Try it out” against test APIs.</p></div>
+</section>
+</main>
+<script>
+var _openapiStarted=false;
+window.addEventListener('encoderutil:tab',function(e){ if(e.detail && e.detail.id==='openapi' && !_openapiStarted){ _openapiStarted=true; openApiInit(); }});
+</script><script src="vendor/js-yaml/js-yaml.js"></script><script src="vendor/swagger-ui/swagger-ui-bundle.js"></script><script src="vendor/swagger-ui/swagger-ui-standalone-preset.js"></script><script src="js/common.js"></script><script src="js/json.js"></script><script src="js/openapi.js"></script><script src="js/tabs.js"></script><footer class="muted">encoder-util · <a href="https://github.com/rtagra/encoder-util">View source on GitHub</a> · Free browser-only tools — no server, nothing you type leaves your browser</footer></body></html>

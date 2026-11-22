@@ -28,7 +28,10 @@ function renderOpenApi(){
       dom_id: '#swagger-ui',
       presets: [window.SwaggerUIBundle.presets.apis, window.SwaggerUIStandalonePreset],
       layout: 'StandaloneLayout',
-      deepLinking: true
+      // deepLinking off: Swagger UI would otherwise rewrite location.hash
+      // (e.g. '#/pet/getPetById'), which would break the tab hash routing
+      // on json-api.html — the '#openapi' hash must keep selecting this tab.
+      deepLinking: false
     });
   }catch(e){ showError('openapi-error', 'Swagger UI failed to render: ' + e.message); }
 }
