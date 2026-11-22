@@ -34,10 +34,16 @@ Checklist for a new page:
 5. Verify the tag is present before pushing: `grep -c GTM-NWTM4N47 <new-page>.html` must return 2.
 6. Add SEO to the new page too (unique title, meta description, canonical, Open Graph, JSON-LD) and add it to `sitemap.xml` — see README.md > SEO.
 
-## Exception: openapi.html has NO tag
+## Exception: json-api.html has NO tag
 
-`openapi.html` must NOT have the Google Tag Manager snippet, by design.
-Bank OpenAPI specs are confidential, so no page view is sent while
-working on that page. Do not add the tag to `openapi.html`, even though
-every other page has it. Swagger UI and the YAML parser on that page
-are vendored locally in `vendor/` — no CDN, no external script.
+`json-api.html` must NOT have the Google Tag Manager snippet, by design.
+It contains the OpenAPI tab, and bank OpenAPI specs are confidential,
+so no page view is sent while working on that page. Do not add the tag
+to `json-api.html`, even though every other combined page has it.
+Swagger UI and the YAML parser on that page are vendored locally in
+`vendor/` — no CDN, no external script.
+
+The old standalone `openapi.html` is now a lightweight redirect to
+`json-api.html#openapi` and also has no tag. The 11 other redirect
+pages have no tag either — they are not real tool pages, just instant
+redirects to the new `#tab` URLs.

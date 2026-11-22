@@ -26,20 +26,34 @@
   gtag('js', new Date());
 </script></head>
 <body><header><h1>encoder-util</h1>
-<nav><a href="index.html" class="active" aria-current="page">Home</a><a href="json-formatter.html">JSON Utils</a><a href="url-encoder.html">URL</a><a href="base64-encoder.html">Base64</a><a href="jwt.html">JWT</a><a href="uuid-generator.html">UUID</a><a href="hex-base64.html">Hex ↔ Base64</a><a href="hash.html">Hash</a><a href="openapi.html">OpenAPI</a><a href="regex-tester.html">Regex</a><a href="date-formatter.html">Date</a><a href="cidr-calculator.html">CIDR</a><a href="cert-formatter.html">Cert</a></nav></header>
-<main><div class="grid">
-<a href="json-formatter.html"><strong>JSON Formatter, Validator &amp; Minifier</strong><br><span class="muted">json-formatter.html — pretty-print, minify and validate JSON, sort keys, 2/4-space or tab indent</span></a>
-<a href="url-encoder.html"><strong>URL Encoder / Decoder</strong><br><span class="muted">url-encoder.html — encode and decode URLs, standard + component</span></a>
-<a href="base64-encoder.html"><strong>Base64 Encoder / Decoder</strong><br><span class="muted">base64-encoder.html — Unicode-safe, standard + URL-safe</span></a>
-<a href="jwt.html"><strong>JWT Encoder &amp; Decoder</strong><br><span class="muted">jwt.html — like jwt.io: paste a token to decode it, edit the claims to re-sign it, HS256 / HS384 / HS512, verify signature</span></a>
-<a href="uuid-generator.html"><strong>UUID Generator</strong><br><span class="muted">uuid-generator.html — v4 random / v7 time-ordered, 1–100 at a time, hyphens + uppercase options</span></a>
-<a href="hex-base64.html"><strong>Hex ↔ Base64</strong><br><span class="muted">hex-base64.html — hex to Base64 and back, standard + URL-safe</span></a>
-<a href="hash.html"><strong>MD5 &amp; SHA-256 Hasher</strong><br><span class="muted">hash.html — one input, both hashes: MD5 hex, SHA-256 hex and Base64</span></a>
-<a href="openapi.html"><strong>OpenAPI Renderer &amp; Editor</strong><br><span class="muted">openapi.html — paste an OpenAPI YAML/JSON spec, view it as Swagger UI docs, edit live — no CDN, spec never leaves your browser</span></a>
-<a href="regex-tester.html"><strong>Regex Tester</strong><br><span class="muted">regex-tester.html — test regular expressions, highlight matches, capture groups, replace with $1, $2</span></a>
-<a href="date-formatter.html"><strong>Date Formatter</strong><br><span class="muted">date-formatter.html — format a date for Java, Python, JavaScript, Go, C# and PHP, with sample code</span></a>
-<a href="cidr-calculator.html"><strong>CIDR Calculator</strong><br><span class="muted">cidr-calculator.html — CIDR range to network, broadcast, mask and usable hosts, plus check if an IP is in range</span></a>
-<a href="cert-formatter.html"><strong>Cert Formatter</strong><br><span class="muted">cert-formatter.html — wrap a single-line certificate / key to 64 chars per line (RFC 7468), or unwrap to one line</span></a>
+<nav><a href="index.html" class="active" aria-current="page">Home</a><a href="encoders.html">Encoders</a><a href="crypto.html">Crypto &amp; Certs</a><a href="json-api.html">JSON &amp; API</a><a href="regex-date.html">Regex &amp; Date</a><a href="ids-network.html">IDs &amp; Network</a></nav></header>
+<main>
+<h2>Encoders</h2>
+<div class="grid">
+<a href="encoders.html#url"><strong>URL Encoder / Decoder</strong><br><span class="muted">Encode and decode URLs, standard + component</span></a>
+<a href="encoders.html#base64"><strong>Base64 Encoder / Decoder</strong><br><span class="muted">Unicode-safe, standard + URL-safe</span></a>
+<a href="encoders.html#hex-base64"><strong>Hex ↔ Base64</strong><br><span class="muted">Hex to Base64 and back, standard + URL-safe</span></a>
 </div>
-<div class="card"><h2>Privacy</h2><p>Browser-only utilities. No server — nothing you type leaves your browser. Page views are counted with Google Tag Manager (GTM-NWTM4N47); no input, secret or token is sent. Each tool has its own page / filename, so you can link straight to it.</p><p>JWT signing / verifying with a real secret is demo-only in a browser. Don't paste a production secret into any web page — signing real tokens belongs on a server. Decoding a JWT is safe: it only reads the token.</p></div>
+<h2>Crypto &amp; Certs</h2>
+<div class="grid">
+<a href="crypto.html#jwt"><strong>JWT Encoder &amp; Decoder</strong><br><span class="muted">Like jwt.io: paste a token to decode it, edit the claims to re-sign it, HS256 / HS384 / HS512, verify signature</span></a>
+<a href="crypto.html#hash"><strong>MD5 &amp; SHA-256 Hasher</strong><br><span class="muted">One input, both hashes: MD5 hex, SHA-256 hex and Base64</span></a>
+<a href="crypto.html#cert"><strong>Cert Formatter</strong><br><span class="muted">Wrap a single-line certificate / key to 64 chars per line (RFC 7468), or unwrap to one line</span></a>
+</div>
+<h2>JSON &amp; API</h2>
+<div class="grid">
+<a href="json-api.html#json"><strong>JSON Formatter, Validator &amp; Minifier</strong><br><span class="muted">Pretty-print, minify and validate JSON, sort keys, 2/4-space or tab indent</span></a>
+<a href="json-api.html#openapi"><strong>OpenAPI Renderer &amp; Editor</strong><br><span class="muted">Paste an OpenAPI YAML/JSON spec, view it as Swagger UI docs, edit live — no CDN, spec never leaves your browser</span></a>
+</div>
+<h2>Regex &amp; Date</h2>
+<div class="grid">
+<a href="regex-date.html#regex"><strong>Regex Tester</strong><br><span class="muted">Test regular expressions, highlight matches, capture groups, replace with $1, $2</span></a>
+<a href="regex-date.html#date"><strong>Date Formatter</strong><br><span class="muted">Format a date for Java, Python, JavaScript, Go, C# and PHP, with sample code</span></a>
+</div>
+<h2>IDs &amp; Network</h2>
+<div class="grid">
+<a href="ids-network.html#uuid"><strong>UUID Generator</strong><br><span class="muted">v4 random / v7 time-ordered, 1–100 at a time, hyphens + uppercase options</span></a>
+<a href="ids-network.html#cidr"><strong>CIDR Calculator</strong><br><span class="muted">CIDR range to network, broadcast, mask and usable hosts, plus check if an IP is in range</span></a>
+</div>
+<div class="card"><h2>Privacy</h2><p>Browser-only utilities. No server — nothing you type leaves your browser. Page views are counted with Google Tag Manager (GTM-NWTM4N47); no input, secret or token is sent. Each tool lives on a tab of its category page, so you can link straight to it, e.g. <code>encoders.html#base64</code>. The JSON &amp; API page has no Google Tag, by design — it contains the OpenAPI tab, and bank specs are confidential.</p><p>JWT signing / verifying with a real secret is demo-only in a browser. Don't paste a production secret into any web page — signing real tokens belongs on a server. Decoding a JWT is safe: it only reads the token.</p></div>
 </main><footer class="muted">encoder-util · <a href="https://github.com/rtagra/encoder-util">View source on GitHub</a> · Free browser-only tools — no server, nothing you type leaves your browser</footer></body></html>

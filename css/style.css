@@ -36,3 +36,13 @@ pre{white-space:pre-wrap;word-break:break-all;background:#0b1220;padding:12px;bo
 .jwt-layout textarea{min-height:180px}
 #jwt-token{min-height:320px}
 @media (max-width:700px){.jwt-layout{grid-template-columns:1fr}}
+
+/* Combined tabbed pages — one page per category, one tab per tool.
+   Tab buttons reuse the menu look, smaller; the active tab matches nav. */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+.tabs button{margin:0;background:#334155;color:var(--text);border:1px solid var(--border);box-shadow:none}
+.tabs button:hover{background:#475569;color:#fff}
+.tabs button.active{background:var(--accent);color:#082f49;border-color:#fff}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.tab-panel>.card,.tab-panel>.jwt-layout{margin-top:12px}
