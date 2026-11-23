@@ -26,9 +26,9 @@ To submit to Google:
 3. In Search Console: Sitemaps → add `https://rtagra.github.io/encoder-util/sitemap.xml` → Submit.
 4. Request indexing for the home page, then wait — Google usually indexes a small new site in days to a few weeks. Check coverage in Search Console, not by searching immediately.
 
-## Tools — 5 combined pages, 12 tools as tabs
+## Tools — 6 combined pages, 13 tools (11 as tabs, 2 as single pages)
 
-The top menu has 6 items: Home + 5 category pages. Each category page has a tab bar (`js/tabs.js`); clicking a tab shows that tool and updates the URL hash, so every tool is still directly linkable, e.g. `encoders.html#base64`. The home page is organised into the same 5 category sections, linking straight to each tool's `#tab`.
+The top menu has 7 items: Home + 6 category pages. Each category page has a tab bar (`js/tabs.js`); clicking a tab shows that tool and updates the URL hash, so every tool is still directly linkable, e.g. `encoders.html#base64`. The home page is organised into the same 6 category sections, linking straight to each tool (by `#tab`, or by page for UUID and CIDR).
 
 | Page | Tab (`#hash`) | Tool JS | What it does |
 |---|---|---|---|
@@ -39,19 +39,20 @@ The top menu has 6 items: Home + 5 category pages. Each category page has a tab 
 | Crypto & Certs | `#jwt` | `js/jwt.js` | JWT Encoder & Decoder — like jwt.io: paste a token to decode header + payload, edit the claims to re-sign it, HS256 / HS384 / HS512, verify signature, hover `exp` / `iat` / `nbf` for human-readable local time |
 | Crypto & Certs | `#hash` | `js/hash.js` | MD5 & SHA-256 Hasher — one input, both hashes: MD5 hex, SHA-256 hex and Base64, live update |
 | Crypto & Certs | `#cert` | `js/cert.js` | Cert Formatter — wrap a single-line PEM block (certificate / key / CSR) to 64 chars per line (RFC 7468), 76 / 44 / 32, or unwrap to one line |
+| Crypto & Certs | `#encrypt` | `js/openssl.js` | OpenSSL Encryption — AES-256-CBC with a password, openssl `enc` compatible: `Salted__` + 8-byte salt, Base64 (-a) output; PBKDF2-SHA256 (default, 10,000 iters), legacy EVP_BytesToKey/SHA-256 (openssl 1.1.1+ default, no `-pbkdf2`) or EVP_BytesToKey/MD5 (openssl < 1.1.1 / `-md md5`); verified both ways against the real `openssl` CLI for all three KDFs |
 | JSON & API | `#json` | `js/json.js` | JSON Formatter, Validator & Minifier — pretty-print, minify and validate JSON, sort keys, 2/4-space or tab indent |
 | JSON & API | `#openapi` | `js/openapi.js` + vendored Swagger UI 5.34.1 | OpenAPI Renderer & Editor — paste an OpenAPI YAML/JSON spec, render as Swagger UI docs, edit live — no CDN, no GTM on this page |
 | Regex & Date | `#regex` | `js/regex.js` | Regex Tester — test regex with flags, highlight matches, capture groups, replace with $1/$2 |
 | Regex & Date | `#date` | `js/date.js` | Date Formatter — format a date for Java, Python, JavaScript, Go, C# and PHP, with sample code |
-| IDs & Network | `#uuid` | `js/uuid.js` | UUID Generator — v4 random / v7 time-ordered, 1–100 at a time, hyphens + uppercase options |
-| IDs & Network | `#cidr` | `js/cidr.js` | CIDR Calculator — IPv4 CIDR to network, broadcast, subnet/wildcard mask, usable hosts; check if an IP is in range |
+| IDs | — | `js/uuid.js` | UUID Generator — v4 random / v7 time-ordered, 1–100 at a time, hyphens + uppercase options (`ids.html`, single-tool page) |
+| Network | — | `js/cidr.js` | CIDR Calculator — IPv4 CIDR to network, broadcast, subnet/wildcard mask, usable hosts; check if an IP is in range (`network.html`, single-tool page) |
 
 ### Tabs & redirects
 
 - Tab switching is in `js/tabs.js` (shared, no dependencies). It reads the hash on load, updates it on click (`history.replaceState`, so back/forward still works via `hashchange`), and fires a `encoderutil:tab` window event on activation.
 - The OpenAPI tab is lazily initialised: `json-api.html` only calls `openApiInit()` the first time the `#openapi` tab is shown, because Swagger UI renders badly while its panel is hidden. The other tabs' tools run their normal init on page load (`jwtInit()` / `computeHash()` on `crypto.html`).
-- The 12 old single-tool filenames (`url-encoder.html`, `base64-encoder.html`, `hex-base64.html`, `jwt.html`, `hash.html`, `cert-formatter.html`, `json-formatter.html`, `openapi.html`, `regex-tester.html`, `date-formatter.html`, `uuid-generator.html`, `cidr-calculator.html`) are kept as lightweight redirects — `meta refresh` + `location.replace()` + canonical link to the new `#tab` URL, `noindex, nofollow`, no GTM — so existing bookmarks don't break. Do not delete them without updating the links above.
-- `sitemap.xml` lists only `index.html` and the 5 combined pages.
+- The 12 old single-tool filenames (`url-encoder.html`, `base64-encoder.html`, `hex-base64.html`, `jwt.html`, `hash.html`, `cert-formatter.html`, `json-formatter.html`, `openapi.html`, `regex-tester.html`, `date-formatter.html`, `uuid-generator.html`, `cidr-calculator.html`) are kept as lightweight redirects — `meta refresh` + `location.replace()` + canonical link to the new URL (`#tab` for tabbed tools, `ids.html` / `network.html` for UUID / CIDR), `noindex, nofollow`, no GTM — so existing bookmarks don't break. Do not delete them without updating the links above. (`ids-network.html` from the refactor PR was removed, not redirected — it never shipped to main.)
+- `sitemap.xml` lists only `index.html` and the 6 combined pages.
 
 Shared code: `js/common.js` (Base64 / Base64URL, HMAC via Web Crypto, timestamp hover formatting), `css/style.css`.
 
